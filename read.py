@@ -104,4 +104,17 @@ def init():
 
 def main():
     init()
+    fetchall_test()
+    print('#' * 50)
+    fetchone_test()
+    print('#' * 50)
+    update_test()
+    print('#' * 50)
+    delete_test()
+    fetchall_test()
+
+if __name__ == '__main__':
+    main()
+
+
 
