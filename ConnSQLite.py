@@ -9,7 +9,7 @@ DB_FILE_PATH = ''
 #表名称
 TABLE_NAME = ''
 #是否打印sql
-SHOW_SQL = Ture
+SHOW_SQL = True
 
 def get_conn(path):
     #获取到数据库的连接对象，参数为数据库文件的绝对路径
@@ -41,7 +41,7 @@ def get_cursor(conn):
 def drop_table(conn,table):
     '''如果表存在,则删除表，如果表中存在数据的时候，使用该
      方法的时候要慎用！'''
-     if table is not None and table != '':
+    if table is not None and table != '':
          sql = 'DROP TABLE IF EXISTS ' + table
          if SHOW_SQL:
              print('执行sql:[{}]'.format(sql))
@@ -50,7 +50,7 @@ def drop_table(conn,table):
          conn.commit()
          print('删除数据库[{}]成功！'.format(table))
          close_all(conn,cu)
-     else:
+    else:
          print('the [{}] is empty or equal None!'.format(sql))
 
 def create_table(conn,sql):
@@ -83,7 +83,7 @@ def close_all(conn,cu):
 def save(conn,sql,data):
     '''插入数据'''
     if sql is not None and sql != '':
-        cu =get_cursor()
+        cu =get_cursor(conn)
         for d in data:
             if SHOW_SQL:
                 print('执行sql:[{}],参数：[{}]'.format(sql,d))

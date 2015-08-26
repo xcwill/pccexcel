@@ -3,7 +3,7 @@
 
 __author__ = 'Admin'
 
-from sqlite3 import *
+from ConnSQLite import *
 
 def drop_table_test():
     '''删除数据库表测试'''
@@ -93,14 +93,15 @@ def init():
     TABLE_NAME = 'student'
     #是否打印sql
     global SHOW_SQL
+    [create_table_sql,save_sql,data] = read_excel()
     SHOW_SQL = True
     print('show_sql : {}'.format(SHOW_SQL))
     #如果存在数据库表，则删除表
     drop_table_test()
     #创建数据库表student
-    create_table_test()
+    create_table_test(create_table_sql)
     #向数据库表中插入数据
-    save_test()
+    save_test(save_sql,data)
 
 def main():
     init()
