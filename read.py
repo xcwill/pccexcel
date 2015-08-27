@@ -66,8 +66,8 @@ def delete_test():
 
 def read_excel():
      create_table_sql = '''CREATE TABLE `student` (
-                          `id` int(11) NOT NULL,
-                          `name` varchar(20) NOT NULL,
+                          id int(11) NOT NULL,
+                          name varchar(20) NOT NULL,
                           `gender` varchar(4) DEFAULT NULL,
                           `age` int(11) DEFAULT NULL,
                           `address` varchar(200) DEFAULT NULL,
